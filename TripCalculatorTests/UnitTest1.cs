@@ -11,7 +11,6 @@ namespace Tests
         Expense e2;
         Expense e3;
 
-
         [SetUp]
         public void Setup()
         {
@@ -24,7 +23,6 @@ namespace Tests
             p.Expenses.Add(e1);
             p.Expenses.Add(e2);
             p.Expenses.Add(e3);
-
         }
 
         [Test]
@@ -54,6 +52,14 @@ namespace Tests
 
             Assert.GreaterOrEqual(negativeTry.DollarAmount, 0.00);
         }
+
+        [Test]
+        public void PersonNameCanBeChanged()
+        {
+            p.ChangeName("John2");
+
+            Assert.AreEqual("John2", p.Name);
+        }
     }
 
     public class CalculationTests
@@ -75,8 +81,6 @@ namespace Tests
         Expense e1p3;
         Expense e2p3;
         Expense e3p3;
-
-
 
         [SetUp]
         public void Setup()
@@ -100,37 +104,19 @@ namespace Tests
             e2p3 = new Expense(4.50m);
             e3p3 = new Expense(8.75m);
 
-            //p1.Expenses.Add(e1p1);
-            //p1.Expenses.Add(e2p1);
-            //p1.Expenses.Add(e3p1);
             p1.AddExpense(e1p1);
             p1.AddExpense(e2p1);
             p1.AddExpense(e3p1);
 
-            //p2.Expenses.Add(e1p2);
-            //p2.Expenses.Add(e2p2);
-            //p2.Expenses.Add(e3p2);
             p2.AddExpense(e1p2);
             p2.AddExpense(e2p2);
             p2.AddExpense(e3p2);
 
-
-            //p3.Expenses.Add(e1p3);
-            //p3.Expenses.Add(e2p3);
-            //p3.Expenses.Add(e3p3);
             p3.AddExpense(e1p3);
             p3.AddExpense(e2p3);
             p3.AddExpense(e3p3);
 
         }
-
-        //[Test]
-        //public void ExpensesShouldBeAddedTogetherPerPerson()
-        //{
-        //    double result = TripCalculations.TotalCurrentExpensesSinglePerson(p1);
-
-        //    Assert.AreEqual(7.75, result);
-        //}
 
         [Test]
         public void ExpensesCanBeAddedToPersons()
@@ -164,7 +150,6 @@ namespace Tests
             decimal averageExpenses = TripCalculations.AverageCurrentExpensesEveryone(people);
 
             Assert.AreEqual(29.92m, averageExpenses);
-
         }
 
         [Test]
@@ -205,5 +190,4 @@ namespace Tests
             Assert.AreEqual(0.00m, p2.FinalAmountOwed);
         }
     }
-
 }

@@ -15,12 +15,7 @@ namespace TripCalculator
 
         public Person(string name)
         {
-            if(string.IsNullOrEmpty(name))
-            {
-                Name = "Name can't be Empty "+DateTime.Now.ToString();
-            }
-            else
-                Name = name;
+            ChangeName(name);
 
             Expenses = new List<Expense>();
             RunningTotal = 0.00m;
@@ -33,5 +28,14 @@ namespace TripCalculator
             RunningTotal = RunningTotal + exp.DollarAmount;
         }
 
+        public void ChangeName(string newName)
+        {
+            if (string.IsNullOrEmpty(newName))
+            {
+                Name = "Name can't be Empty " + DateTime.Now.ToString();
+            }
+            else
+                Name = newName;
+        }
     }
 }

@@ -8,7 +8,6 @@ namespace TripCalculator
 {
     public static class TripCalculations
     {
-
         public static decimal TotalCurrentExpensesSinglePerson(Person p)
         {
             decimal result = 0.00m;
@@ -19,7 +18,6 @@ namespace TripCalculator
             }
 
             return result;
-
         }
 
         public static decimal AverageCurrentExpensesEveryone(List<Person> people)
@@ -47,6 +45,5 @@ namespace TripCalculator
 
             return result;
         }
-
     }
 }
